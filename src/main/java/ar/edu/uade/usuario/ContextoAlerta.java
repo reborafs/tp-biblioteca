@@ -1,37 +1,22 @@
 package ar.edu.uade.usuario;
 
-import ar.edu.uade.usuario.EstrategiaAlerta;
+import java.time.LocalDate;
 
-/**
- * 
- */
+import ar.edu.uade.usuario.IEstrategiaAlerta;
+
 public class ContextoAlerta {
-
-    /**
-     * Default constructor
-     */
-    public ContextoAlerta() {
+	private IEstrategiaAlerta estrategia;
+	
+    public ContextoAlerta(IEstrategiaAlerta estrategia) {
+    	this.estrategia = estrategia;
     }
-
-    /**
-     * 
-     */
-    public EstrategiaAlerta estrategia;
-
-    /**
-     * @param tipoAlerta String 
-     * @return
-     */
-    public void setEstrategiaAlerta(void tipoAlerta String) {
-        // TODO implement here
-        return null;
+    
+    public void setEstrategiaAlerta(IEstrategiaAlerta estrategia) {
+        this.estrategia = estrategia;
     }
-
-    /**
-     * 
-     */
-    public void enviarNotificacion() {
-        // TODO implement here
+    
+    public void enviarAlerta(String contacto, String mensaje, TipoMotivoComunicacion motivoComunicacion) {
+        this.estrategia.enviarNotificacion (contacto, mensaje, LocalDate.now(), motivoComunicacion ); 
     }
 
 }

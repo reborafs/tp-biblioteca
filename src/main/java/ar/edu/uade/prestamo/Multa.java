@@ -1,26 +1,20 @@
 package ar.edu.uade.prestamo;
 
+import java.time.LocalDate;
 import java.util.*;
 
 /**
  * 
  */
 public class Multa {
-
-    /**
-     * Default constructor
-     */
+	
+    private LocalDate fecha;
+    private int idUser;
+    
+    
     public Multa() {
     }
 
-    /**
-     * 
-     */
-    private void fecha;
 
-    /**
-     * 
-     */
-    public void Attribute1;
 
 }

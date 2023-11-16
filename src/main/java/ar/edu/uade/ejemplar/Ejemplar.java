@@ -3,60 +3,54 @@ package ar.edu.uade.ejemplar;
 import java.time.LocalDate;
 import java.util.*;
 
-/**
- * 
- */
 public class Ejemplar implements IUbicacion {
 
-    /**
-     * Default constructor
-     */
-    public Ejemplar() {
+	private UUID uuid;
+	private TipoCategoria categoria;
+	private String titulo;
+	private String autor;
+	private LocalDate fechaPublicacion;
+	private String ubicacion;
+	private boolean disponible;
+
+    public Ejemplar(TipoCategoria categoria, String titulo) {
+    	this.uuid = UUID.randomUUID();
+    	this.categoria = categoria;
+    	this.titulo = titulo;
     }
 
-    /**
-     * 
-     */
-    private UUID uuid;
+    public TipoCategoria getCategoria() {
+		return categoria;
+	}
 
-    /**
-     * 
-     */
-    private Categoria categoria;
+	public String getTitulo() {
+		return titulo;
+	}
 
-    /**
-     * 
-     */
-    private String titulo;
+	public String getAutor() {
+		return autor;
+	}
 
-    /**
-     * 
-     */
-    private String autor;
+	public UUID getUuid() {
+		return uuid;
+	}
 
-    /**
-     * 
-     */
-    private LocalDate fechaPublicacion;
+	public LocalDate getFechaPublicacion() {
+		return fechaPublicacion;
+	}
 
-    /**
-     * 
-     */
-    private String ubicacion;
-
-    /**
-     * @return
-     */
-    public String getUbicacion() {
-        // TODO implement here
-        return "";
+    public String getUbicacion(UUID idEjemplar) {
+        return ubicacion;
     }
 
-    /**
-     * @param idEjemplar
-     */
-    public void getUbicacion(UUID idEjemplar) {
-        // TODO implement here
-    }
+	public boolean isDisponible() {
+		return disponible;
+	}
+
+	public void setDisponible(boolean disponible) {
+		this.disponible = disponible;
+	}
+    
+    
 
 }

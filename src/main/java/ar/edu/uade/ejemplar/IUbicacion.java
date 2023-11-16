@@ -9,7 +9,8 @@ public interface IUbicacion {
 
     /**
      * @param idEjemplar
+     * @return 
      */
-    public void getUbicacion(UUID idEjemplar);
+    public String getUbicacion(UUID idEjemplar);
 
 }

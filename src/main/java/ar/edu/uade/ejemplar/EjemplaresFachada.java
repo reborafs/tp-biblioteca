@@ -1,12 +1,7 @@
 package ar.edu.uade.ejemplar;
 
-import ar.edu.uade.ejemplar.Ejemplar;
-
 import java.util.*;
 
-/**
- * 
- */
 public class EjemplaresFachada {
 
     /**
@@ -18,7 +13,7 @@ public class EjemplaresFachada {
     /**
      * 
      */
-    private List<Peticion> peticiones;
+    private List<Busqueda> busquedas;
 
     /**
      * @return
@@ -52,7 +47,7 @@ public class EjemplaresFachada {
      * @param categoria ar.edu.uade.ejemplar.Categoria
      * @return
      */
-    public void actualizarPlazoPrestamo(Categoria categoria) {
+    public void actualizarPlazoPrestamo(TipoCategoria categoria) {
         // TODO implement here
         //return null;
     }

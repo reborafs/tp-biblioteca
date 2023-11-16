@@ -1,27 +1,19 @@
 package ar.edu.uade.usuario;
 
-/**
- * 
- */
-public class EstrategiaSms extends EstrategiaAlerta {
+import java.time.LocalDate;
 
-    /**
-     * Default constructor
-     */
-    public EstrategiaSms() {
-    }
-
-    /**
-     * 
-     */
+public class EstrategiaSms implements IEstrategiaAlerta {
     private String MENSAJE_SMS;
-
-    /**
-     * @param numeroCelular String 
-     * @param mensaje String
-     */
-    public void enviarNotificacion(void numeroCelular String, void mensaje String) {
-        // TODO implement here
+    
+    public EstrategiaSms(String MENSAJE_SMS) {
+    	this.MENSAJE_SMS = MENSAJE_SMS;
     }
+
+	@Override
+	public void enviarNotificacion(String contacto, String mensaje, LocalDate localDate,
+			TipoMotivoComunicacion motivoComunicacion) {
+		System.out.println("enviando SMS a: "+contacto+"\nmensaje: "+mensaje );
+		
+	}
 
 }

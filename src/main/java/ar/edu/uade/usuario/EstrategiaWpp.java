@@ -1,26 +1,19 @@
 package ar.edu.uade.usuario;
 
-/**
- * 
- */
-public class EstrategiaWpp extends EstrategiaAlerta {
+import java.time.LocalDate;
 
-    /**
-     * Default constructor
-     */
+public class EstrategiaWpp implements IEstrategiaAlerta {
+
+    private String MENSAJE_WPP;
+
     public EstrategiaWpp() {
     }
 
-    /**
-     * 
-     */
-    private String MENSAJE_WPP;
-
-    /**
-     * @param numeroCelular String
-     */
-    public void enviarNotificacion(void numeroCelular String) {
-        // TODO implement here
-    }
+	@Override
+	public void enviarNotificacion(String contacto, String mensaje, LocalDate localDate,
+			TipoMotivoComunicacion motivoComunicacion) {
+		System.out.println("enviando whatsApp a: "+contacto+"\nmensaje: "+mensaje);
+		
+	}
 
 }

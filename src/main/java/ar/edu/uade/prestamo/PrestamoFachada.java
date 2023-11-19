@@ -1,8 +1,8 @@
-package ar.edu.uade.prestamo;
-
-import ar.edu.uade.prestamo.Prestamo;
+package main.java.ar.edu.uade.prestamo;
 
 import java.util.*;
+
+import main.java.ar.edu.uade.prestamo.Prestamo;
 
 /**
  * 

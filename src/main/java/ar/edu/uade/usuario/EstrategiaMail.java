@@ -1,4 +1,4 @@
-package ar.edu.uade.usuario;
+package main.java.ar.edu.uade.usuario;
 
 import java.time.LocalDate;
 
@@ -7,21 +7,13 @@ import java.time.LocalDate;
  */
 public class EstrategiaMail implements IEstrategiaAlerta {
 
-    private String MENSAJE_MAIL;
-    private String mailFrom;
-
-    public EstrategiaMail() {
-    }
-
-    public void enviarNotificacion(String mail, String mensaje) {
-        System.out.println("enviando mail: "+mensaje);
-    }
-
 	@Override
-	public void enviarNotificacion(String contacto, String mensaje, LocalDate localDate,
+	public void enviarNotificacion(String contacto, String mensaje,
 			TipoMotivoComunicacion motivoComunicacion) {
-		System.out.println("enviando MAIL a: "+contacto+"\nfecha: "+localDate);
-		
+		System.out.println("MAIL enviado a: "+contacto+
+				"\n fecha: "+LocalDate.now()+
+				"\n motivo: "+motivoComunicacion+
+				"\n mensaje: "+mensaje);
 	}
-
+	
 }

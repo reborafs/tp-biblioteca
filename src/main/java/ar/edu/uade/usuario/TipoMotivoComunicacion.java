@@ -1,4 +1,4 @@
-package ar.edu.uade.usuario;
+package main.java.ar.edu.uade.usuario;
 
 public enum TipoMotivoComunicacion {
 	FECHA_VENCIMIENTO_PROXIMO,

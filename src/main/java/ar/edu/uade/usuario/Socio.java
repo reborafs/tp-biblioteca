@@ -1,8 +1,13 @@
-package main.java.ar.edu.uade.usuario;
+package ar.edu.uade.usuario;
+
+import ar.edu.uade.usuario.IEstrategiaAlerta;
+import ar.edu.uade.usuario.IStateSocio;
+import ar.edu.uade.usuario.StateActivo;
+import ar.edu.uade.usuario.TipoMotivoComunicacion;
 
 import java.util.*;
 
-import main.java.ar.edu.uade.usuario.IStateSocio;
+
 
 public class Socio {
 

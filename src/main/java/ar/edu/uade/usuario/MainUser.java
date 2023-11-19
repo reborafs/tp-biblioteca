@@ -1,4 +1,4 @@
-package main.java.ar.edu.uade.usuario;
+package ar.edu.uade.usuario;
 
 public class MainUser {
 

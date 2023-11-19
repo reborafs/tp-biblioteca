@@ -1,8 +1,8 @@
-package main.java.ar.edu.uade.usuario;
+package ar.edu.uade.usuario;
+
+import ar.edu.uade.usuario.IStateSocio;
 
 import java.util.*;
-
-import main.java.ar.edu.uade.usuario.IStateSocio;
 
 public class Socio {
 

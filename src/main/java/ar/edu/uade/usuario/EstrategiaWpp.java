@@ -10,9 +10,12 @@ public class EstrategiaWpp implements IEstrategiaAlerta {
     }
 
 	@Override
-	public void enviarNotificacion(String contacto, String mensaje, LocalDate localDate,
+	public void enviarNotificacion(String contacto, String mensaje,
 			TipoMotivoComunicacion motivoComunicacion) {
-		System.out.println("enviando whatsApp a: "+contacto+"\nmensaje: "+mensaje);
+		System.out.println("mensaje de whatsApp enviado a: "+contacto+
+				"\n fecha: "+ LocalDate.now() +
+				"\n motivo: "+motivoComunicacion+
+				" mensaje: "+mensaje);
 		
 	}
 

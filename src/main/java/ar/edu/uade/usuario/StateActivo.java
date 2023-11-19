@@ -12,16 +12,16 @@ public class StateActivo implements IStateSocio{
 	@Override
 	public void devolucionPrestamo(Ejemplar ejemplar, Prestamo prestamo) {
 		int diasTranscurridos = (int) ChronoUnit.DAYS.between(LocalDate.now(), prestamo.getFechaVencimiento());
-		
-		Socio socio = prestamo.getSocio(); //accedo a SOCIO a traves de PRESTAMO
-		if (diasTranscurridos > 0) { //si es > 0 la devolucion esta vencida => incrementar dias habiles (10 limite=bloqueado)
-			int diasRetraso = socio.getStateDiasHabiles() + diasTranscurridos;
-			socio.setStateDiasHabiles(diasTranscurridos);
-			if(socio.getStateDiasHabiles()>10) {
-				IStateSocio stateSuspendido = new StateSuspendido();
-				socio.setStateSocio(stateSuspendido);
-			}
-		}
+
+		//Socio socio = prestamo.getSocio(); //accedo a SOCIO a traves de PRESTAMO
+		//if (diasTranscurridos > 0) { //si es > 0 la devolucion esta vencida => incrementar dias habiles (10 limite=bloqueado)
+		//	int diasRetraso = socio.getStateDiasHabiles() + diasTranscurridos;
+		//	socio.setStateDiasHabiles(diasTranscurridos);
+		//	if(socio.getStateDiasHabiles()>10) {
+		//		IStateSocio stateSuspendido = new StateSuspendido();
+		//		socio.setStateSocio(stateSuspendido);
+		//	}
+		//}
 	}
 
 	@Override

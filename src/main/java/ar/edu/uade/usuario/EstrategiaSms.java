@@ -10,10 +10,12 @@ public class EstrategiaSms implements IEstrategiaAlerta {
     }
 
 	@Override
-	public void enviarNotificacion(String contacto, String mensaje, LocalDate localDate,
+	public void enviarNotificacion(String contacto, String mensaje,
 			TipoMotivoComunicacion motivoComunicacion) {
-		System.out.println("enviando SMS a: "+contacto+"\nmensaje: "+mensaje );
-		
+		System.out.println("SMS enviado a: "+contacto+
+				"\n fecha: "+LocalDate.now()+
+				"\n motivo: motivoComunicacion: "+motivoComunicacion
+				+"\nmensaje: "+mensaje );
 	}
 
 }

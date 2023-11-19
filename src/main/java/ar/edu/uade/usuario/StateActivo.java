@@ -1,19 +1,16 @@
-package ar.edu.uade.usuario;
+package main.java.ar.edu.uade.usuario;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
-import ar.edu.uade.ejemplar.Ejemplar;
-import ar.edu.uade.prestamo.Prestamo;
+
+import main.java.ar.edu.uade.ejemplar.Ejemplar;
+import main.java.ar.edu.uade.prestamo.Prestamo;
 
 public class StateActivo implements IStateSocio{
 	
-	//Socio debe conocer sus prestamos y pasar el actual por parametro
 	@Override
-	public void devolucionPrestamo(Ejemplar ejemplar, Prestamo prestamo) {
-		int diasTranscurridos = (int) ChronoUnit.DAYS.between(LocalDate.now(), prestamo.getFechaVencimiento());
-		
-		Socio socio = prestamo.getSocio(); //accedo a SOCIO a traves de PRESTAMO
+	public void devolucionPrestamo(int diasTranscurridos, Socio socio) {
 		if (diasTranscurridos > 0) { //si es > 0 la devolucion esta vencida => incrementar dias habiles (10 limite=bloqueado)
 			int diasRetraso = socio.getStateDiasHabiles() + diasTranscurridos;
 			socio.setStateDiasHabiles(diasTranscurridos);
@@ -30,8 +27,6 @@ public class StateActivo implements IStateSocio{
 			ejemplar.setDisponible(false);
 			String ubicacion = ejemplar.getUbicacion(ejemplar.getUuid());
 			
-			//agregar a lista de prestamos
-			//o a lista de prestamos del socio
 		}
 		
 	}

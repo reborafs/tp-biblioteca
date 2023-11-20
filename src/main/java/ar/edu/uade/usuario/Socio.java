@@ -1,6 +1,8 @@
 package ar.edu.uade.usuario;
 
+import ar.edu.uade.prestamo.EstadoPrestamo;
 import ar.edu.uade.prestamo.Observer;
+import ar.edu.uade.prestamo.Prestamo;
 import ar.edu.uade.prestamo.Sujeto;
 
 import java.util.*;
@@ -89,6 +91,7 @@ public class Socio implements Observer{
 
 	@Override
 	public void actualizar(Sujeto observable) {
-		System.out.printf("Socio te informo que cambio el estado de prestamo\n");
+		String estado = (((Prestamo) observable).getEstado().toString());
+		System.out.printf("Socio te informo que cambio el estado a "+ estado+" de prestamo\n");
 	}
 }

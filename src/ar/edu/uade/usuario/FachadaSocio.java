@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-public class SociosFacade {
-	public static SociosFacade instance;
-	public List<Socio> socios;
+public class FachadaSocio {
+	public static FachadaSocio instance;
+	private List<Socio> socios;
 	
-	public SociosFacade () {
+	public FachadaSocio () {
 		this.socios = new ArrayList<>();
 	}
 	
-	public static SociosFacade getInstance() {
+	public static FachadaSocio getInstance() {
 		if(instance == null)
-			instance = new SociosFacade();
+			instance = new FachadaSocio();
 		return instance;
 	}
 	
@@ -67,10 +67,8 @@ public class SociosFacade {
 	public void modificarSocio() {
 		
 	}
-
-
-	public List<Socio> getSocios() {
-		return socios;
-	}
+	
+	
+	
 }
 

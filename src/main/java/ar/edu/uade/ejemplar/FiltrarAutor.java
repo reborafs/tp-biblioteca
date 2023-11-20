@@ -1,4 +1,4 @@
-package main.java.ar.edu.uade.ejemplar;
+package ar.edu.uade.ejemplar;
 
 import java.util.*;
 
@@ -23,7 +23,7 @@ public class FiltrarAutor extends BusquedaLibroHandler {
 	    if (filtroAutor != null) {
 	    	List<Ejemplar> copiaBusquedaEjemplares = new ArrayList<>(busquedaEjemplares);
 	        for (Ejemplar ejemplar : copiaBusquedaEjemplares) {
-	            if (!ejemplar.getTitulo().toString().equals(filtroAutor.getDescripcion())) {
+	            if (!ejemplar.getTitulo().toString().equalsIgnoreCase(filtroAutor.getDescripcion())) {
 	                busquedaEjemplares.remove(ejemplar);
 	            }
 	        }

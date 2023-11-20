@@ -1,25 +1,32 @@
-package main.java.ar.edu.uade.ejemplar;
+package ar.edu.uade.ejemplar;
 
+import ar.edu.uade.ejemplar.Categoria;
 import java.time.LocalDate;
 import java.util.*;
 
 public class Ejemplar implements IUbicacion {
 
 	private UUID uuid;
-	private TipoCategoria categoria;
+	private Categoria categoria;
 	private String titulo;
 	private String autor;
 	private LocalDate fechaPublicacion;
 	private String ubicacion;
 	private boolean disponible;
 
-    public Ejemplar(TipoCategoria categoria, String titulo) {
-    	this.uuid = UUID.randomUUID();
-    	this.categoria = categoria;
-    	this.titulo = titulo;
-    }
+    public Ejemplar(Categoria categoria, String titulo, String autor, LocalDate fechaPublicacion,
+			String ubicacion) {
+		super();
+		this.uuid = UUID.randomUUID();
+		this.categoria = categoria;
+		this.titulo = titulo;
+		this.autor = autor;
+		this.fechaPublicacion = fechaPublicacion;
+		this.ubicacion = ubicacion;
+		this.disponible = true;
+	}
 
-    public TipoCategoria getCategoria() {
+    public Categoria getCategoria() {
 		return categoria;
 	}
 
@@ -47,8 +54,8 @@ public class Ejemplar implements IUbicacion {
 		return disponible;
 	}
 
-	public void setDisponible(boolean disponible) {
-		this.disponible = disponible;
+	public void setDisponible() {
+		this.disponible = !disponible;
 	}
     
     

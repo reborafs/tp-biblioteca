@@ -1,4 +1,4 @@
-package main.java.ar.edu.uade.ejemplar;
+package ar.edu.uade.ejemplar;
 
 import java.util.ArrayList;
 import java.util.LinkedList;

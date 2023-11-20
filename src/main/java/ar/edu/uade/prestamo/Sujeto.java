@@ -1,4 +1,4 @@
-package main.java.ar.edu.uade.prestamo;
+package ar.edu.uade.prestamo;
 
 public interface Sujeto {
 	public void agregar(Observer observador);

@@ -10,9 +10,7 @@ public class StateActivo implements IStateSocio{
 	
 	//Socio debe conocer sus prestamos y pasar el actual por parametro
 	@Override
-	public void devolucionPrestamo(Ejemplar ejemplar, Prestamo prestamo) {
-		int diasTranscurridos = (int) ChronoUnit.DAYS.between(LocalDate.now(), prestamo.getFechaVencimiento());
-		
+	public void devolucionPrestamo(int diasTranscurridos, Socio socio) {
 		//Socio socio = prestamo.getSocio(); //accedo a SOCIO a traves de PRESTAMO
 		//if (diasTranscurridos > 0) { //si es > 0 la devolucion esta vencida => incrementar dias habiles (10 limite=bloqueado)
 		//	int diasRetraso = socio.getStateDiasHabiles() + diasTranscurridos;
@@ -27,7 +25,7 @@ public class StateActivo implements IStateSocio{
 	@Override
 	public void solicitarPrestamo(Ejemplar ejemplar, Socio socio) {
 		if(ejemplar.isDisponible()) {
-			ejemplar.setDisponible(false);
+			ejemplar.setDisponible();
 			String ubicacion = ejemplar.getUbicacion(ejemplar.getUuid());
 
 			//agregar a lista de prestamos

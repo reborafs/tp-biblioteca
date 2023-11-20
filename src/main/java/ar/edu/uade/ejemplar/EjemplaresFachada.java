@@ -1,9 +1,11 @@
 package ar.edu.uade.ejemplar;
 
 import ar.edu.uade.ejemplar.Categoria;
+import ar.edu.uade.usuario.Socio;
 
 import java.time.LocalDate;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class EjemplaresFachada {
 	private static EjemplaresFachada instance;
@@ -66,4 +68,7 @@ public class EjemplaresFachada {
         }
     }
 
+    public List<Map<String, String>> getInfoEjemplares() {
+		return ejemplares.stream().map(Ejemplar::getInfo).collect(Collectors.toList());
+    }
 }

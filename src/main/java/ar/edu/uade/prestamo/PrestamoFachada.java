@@ -1,11 +1,13 @@
 package ar.edu.uade.prestamo;
 
-import ar.edu.uade.prestamo.Prestamo;
+import ar.edu.uade.ejemplar.Ejemplar;
 import ar.edu.uade.usuario.Socio;
-import ar.edu.uade.usuario.SociosFacade;
-
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 /**
  * 
@@ -14,7 +16,7 @@ public class PrestamoFachada {
     public static PrestamoFachada instance;
     public List<Prestamo> prestamos;
 
-    public PrestamoFachada () {
+    private PrestamoFachada () {
         this.prestamos = new ArrayList<>();
     }
 
@@ -43,5 +45,10 @@ public class PrestamoFachada {
 
     public List<Prestamo> getPrestamos() {
         return prestamos;
+    }
+
+
+    public List<Map<String, String>> getInfoPrestamos() {
+        return prestamos.stream().map(Prestamo::getInfo).collect(Collectors.toList());
     }
 }

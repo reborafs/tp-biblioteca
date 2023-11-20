@@ -1,17 +1,20 @@
 package ar.edu.uade.views;
 
-import ar.edu.uade.controllers.ControladorCliente;
+import ar.edu.uade.controllers.ControllerBiblioteca;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
+import java.util.List;
+import java.util.Map;
 
 public class VistaPrestamos extends JFrame {
 
-    private ControladorCliente controller;
+    private ControllerBiblioteca controller;
 
 	public VistaPrestamos() {
 		super("Biblioteca: Prestamos activos");
-        this.controller = ControladorCliente.getInstance();
+        this.controller = ControllerBiblioteca.getInstance();
         this.setLayout(new BorderLayout());
 
         JPanel panelMenu = new JPanel();
@@ -63,8 +66,10 @@ public class VistaPrestamos extends JFrame {
         panelContenido.add(scrollPane, BorderLayout.CENTER);
         this.add(panelContenido, BorderLayout.CENTER);
 
-        btnEjemplares.addActionListener(e -> abrirVistaSocios());
-        btnPrestamos.addActionListener(e -> abrirVistaPrestamos());
+		mostrarTablaPrestamos();
+
+        btnEjemplares.addActionListener(e -> abrirVistaEjemplares());
+        btnSocios.addActionListener(e -> abrirVistaSocios());
 
         this.setSize(800, 600);
         setLocationRelativeTo(null);
@@ -74,15 +79,47 @@ public class VistaPrestamos extends JFrame {
 
     }
 
+    private void abrirVistaEjemplares() {
+        this.dispose();
+        VistaUtils.abrirVistaEjemplares();
+    }
+
     private void abrirVistaSocios() {
         this.dispose();
         VistaUtils.abrirVistaSocios();
     }
 
-    private void abrirVistaPrestamos() {
-        this.dispose();
-        VistaUtils.abrirVistaPrestamos();
-    }
+	private void mostrarTablaPrestamos() {
+		JTable tabla = new JTable();
+		DefaultTableModel modelo = new DefaultTableModel();
 
+		List<Map<String,String>> listaPrestamos = controller.getListaSocios();
+
+		// Definicion de columnas
+		String[] columnas = {"ID","fechaPrestamo","fechaVencimiento","fechaDevolucion","estado"};
+		int cantColumnas = columnas.length;
+
+		modelo.setColumnIdentifiers(columnas);
+
+		for (Map<String, String> infoCliente : listaPrestamos) {
+			String[] fila = new String[cantColumnas+1];
+			fila[0] = infoCliente.get("idSocio");
+			fila[1] = infoCliente.get("fechaPrestamo");
+			fila[2] = infoCliente.get("fechaVencimiento");
+			fila[3] = infoCliente.get("fechaDevolucion");
+			fila[4] = infoCliente.get("estado");
+			modelo.addRow(fila);
+		}
+
+		tabla.setModel(modelo);
+
+		for (int i = 0; i < cantColumnas; i++) {
+			tabla.getColumnModel().getColumn(i).setPreferredWidth(100);
+		}
+
+		// Agregar la tabla a un JScrollPane y añadirlo a la ventana
+		JScrollPane scrollPane = new JScrollPane(tabla);
+		getContentPane().add(scrollPane, BorderLayout.CENTER);
+	}
 
 }

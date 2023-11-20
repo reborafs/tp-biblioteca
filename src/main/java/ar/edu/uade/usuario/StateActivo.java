@@ -29,7 +29,7 @@ public class StateActivo implements IStateSocio{
 		if(ejemplar.isDisponible()) {
 			ejemplar.setDisponible(false);
 			String ubicacion = ejemplar.getUbicacion(ejemplar.getUuid());
-			
+
 			//agregar a lista de prestamos
 			//o a lista de prestamos del socio
 		}

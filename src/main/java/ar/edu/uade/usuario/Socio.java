@@ -8,7 +8,6 @@ import ar.edu.uade.usuario.TipoMotivoComunicacion;
 import java.util.*;
 
 
-
 public class Socio {
 
     private UUID id;

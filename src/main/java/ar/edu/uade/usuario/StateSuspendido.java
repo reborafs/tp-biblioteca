@@ -1,10 +1,12 @@
-package main.java.ar.edu.uade.usuario;
+package ar.edu.uade.usuario;
 
-import java.util.*;
+import java.time.LocalDate;
+import ar.edu.uade.ejemplar.Ejemplar;
+import ar.edu.uade.prestamo.Prestamo;
 
-import main.java.ar.edu.uade.ejemplar.Ejemplar;
-import main.java.ar.edu.uade.prestamo.Prestamo;
-
+/**
+ * 
+ */
 public class StateSuspendido implements IStateSocio{
 
 	@Override
@@ -16,7 +18,7 @@ public class StateSuspendido implements IStateSocio{
 	@Override
 	public void devolucionPrestamo(int diasTranscurridos, Socio socio) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

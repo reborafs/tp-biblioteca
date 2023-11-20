@@ -1,4 +1,4 @@
-package main.java.ar.edu.uade.usuario;
+package ar.edu.uade.usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class SociosFacade {
 	public static SociosFacade instance;
-	private List<Socio> socios;
+	public List<Socio> socios;
 	
 	public SociosFacade () {
 		this.socios = new ArrayList<>();
@@ -67,8 +67,10 @@ public class SociosFacade {
 	public void modificarSocio() {
 		
 	}
-	
-	
-	
+
+
+	public List<Socio> getSocios() {
+		return socios;
+	}
 }
 

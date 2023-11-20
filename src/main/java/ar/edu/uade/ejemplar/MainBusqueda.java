@@ -1,7 +1,8 @@
-package ar.edu.uade.ejemplar;
+package main.java.ar.edu.uade.ejemplar;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class MainBusqueda {
 

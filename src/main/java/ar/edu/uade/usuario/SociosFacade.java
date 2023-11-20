@@ -1,4 +1,4 @@
-package ar.edu.uade.usuario;
+package main.java.ar.edu.uade.usuario;
 
 import java.util.ArrayList;
 import java.util.List;

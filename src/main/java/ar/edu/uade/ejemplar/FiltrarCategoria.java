@@ -1,4 +1,4 @@
-package main.java.ar.edu.uade.ejemplar;
+package ar.edu.uade.ejemplar;
 
 import java.util.*;
 
@@ -23,8 +23,13 @@ public class FiltrarCategoria extends BusquedaLibroHandler {
 	    }
 	    System.out.println("-----------------------------------");
 	    if (filtroCategoria.getTipo() != null) {
+	    	System.out.println("ingreso a filtrar categoria: \n");
 	        for (Ejemplar ejemplar : ejemplares) {
-	            if (ejemplar.getCategoria().toString().equals(filtroCategoria.getDescripcion())) {
+	        	System.out.println("ejemplar:\n "+ejemplar.getTitulo()+"\n "+ejemplar.getCategoria());
+	        	System.out.println(" "+ejemplar.getCategoria().toString().equalsIgnoreCase(filtroCategoria.getDescripcion()));
+
+	        	if (ejemplar.getCategoria().toString().equalsIgnoreCase(filtroCategoria.getDescripcion())) {
+	            	System.out.println("\ningresando coincidencia: "+ejemplar.getCategoria()+"en busqueda");
 	                busquedaEjemplares.add(ejemplar);
 	            }
 	        }

@@ -1,12 +1,12 @@
-package main.java.ar.edu.uade.prestamo;
+package ar.edu.uade.prestamo;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
-import main.java.ar.edu.uade.prestamo.EstadoPrestamo;
-import main.java.ar.edu.uade.usuario.Socio;
+import ar.edu.uade.prestamo.EstadoPrestamo;
+import ar.edu.uade.usuario.Socio;
 
 /**
  * 

@@ -8,7 +8,7 @@ import ar.edu.uade.prestamo.Prestamo;
 public class StatePremiado implements IStateSocio{
 	//5 devoluciones en termino == +1 diaHabilPrestamo
 	@Override
-	public void devolucionPrestamo(Ejemplar ejemplar, Prestamo prestamo) {
+	public void devolucionPrestamo(int diasTranscurridos, Socio socio) {
 		// TODO Auto-generated method stub
 		
 	}

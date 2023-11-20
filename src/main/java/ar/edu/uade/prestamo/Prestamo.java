@@ -3,6 +3,7 @@ package ar.edu.uade.prestamo;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import ar.edu.uade.prestamo.EstadoPrestamo;
@@ -85,4 +86,14 @@ public class Prestamo implements Sujeto{
 	public void notificar() {
 		this.observers.forEach(observer -> observer.actualizar(this));
 	}
+
+	public Map<String, String> getInfo() {
+		return 	Map.of(
+				"idSocio", String.valueOf(this.idSocio),
+				"fechaPrestamo", String.valueOf(this.fechaPrestamo),
+				"fechaVencimiento", String.valueOf(this.fechaVencimiento),
+				"fechaDevolucion" ,String.valueOf(this.fechaDevolucion),
+				"estado", String.valueOf(this.estado));
+	}
+
 }

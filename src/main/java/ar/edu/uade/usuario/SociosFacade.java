@@ -2,7 +2,9 @@ package ar.edu.uade.usuario;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public class SociosFacade {
 	public static SociosFacade instance;
@@ -65,12 +67,14 @@ public class SociosFacade {
 	}
 	
 	public void modificarSocio() {
-		
-	}
 
+	}
 
 	public List<Socio> getSocios() {
 		return socios;
+	}
+	public List<Map<String,String>> getInfoSocios() {
+		return socios.stream().map(Socio::getInfo).collect(Collectors.toList());
 	}
 }
 

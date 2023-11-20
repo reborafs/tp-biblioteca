@@ -1,10 +1,10 @@
 package ar.edu.uade.usuario;
 
-import ar.edu.uade.prestamo.EstadoPrestamo;
 import ar.edu.uade.prestamo.Observer;
 import ar.edu.uade.prestamo.Prestamo;
 import ar.edu.uade.prestamo.Sujeto;
 
+import java.io.Serializable;
 import java.util.*;
 
 
@@ -92,5 +92,17 @@ public class Socio implements Observer{
 	public void actualizar(Sujeto observable) {
 		String estado = (((Prestamo) observable).getEstado().toString());
 		System.out.printf("Socio te informo que cambio el estado a "+ estado+" de prestamo\n");
+	}
+
+	public Map<String, String> getInfo() {
+		return 	Map.of(
+				"id", this.id.toString(),
+				"nombre", this.nombre,
+				"apellido", this.apellido,
+				"dni", this.dni,
+				"mail", this.mail,
+				"nroTelefono", this.nroTelefono,
+				"estrategiaAlerta", this.estrategiaAlerta.getDescription(),
+				"stateSocio", this.stateSocio.getDescription());
 	}
 }

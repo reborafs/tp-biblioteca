@@ -33,5 +33,9 @@ public class StateActivo implements IStateSocio{
 		}
 		
 	}
+	public String getDescription() {
+		String description = "ACTIVO";
+		return description;
+	};
 
 }

@@ -18,5 +18,8 @@ public class StatePremiado implements IStateSocio{
 		// TODO Auto-generated method stub
 		
 	}
-
+	public String getDescription() {
+		String description = "PREMIADO";
+		return description;
+	};
 }

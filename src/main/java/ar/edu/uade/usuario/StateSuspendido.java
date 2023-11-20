@@ -20,5 +20,8 @@ public class StateSuspendido implements IStateSocio{
 		// TODO Auto-generated method stub
 
 	}
-
+	public String getDescription() {
+		String description = "SUSPENDIDO";
+		return description;
+	};
 }

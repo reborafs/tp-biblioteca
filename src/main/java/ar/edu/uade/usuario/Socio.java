@@ -1,15 +1,13 @@
 package ar.edu.uade.usuario;
 
-import ar.edu.uade.usuario.IEstrategiaAlerta;
-import ar.edu.uade.usuario.IStateSocio;
-import ar.edu.uade.usuario.StateActivo;
-import ar.edu.uade.usuario.TipoMotivoComunicacion;
+import ar.edu.uade.prestamo.Observer;
+import ar.edu.uade.prestamo.Sujeto;
 
 import java.util.*;
 
 
 
-public class Socio {
+public class Socio implements Observer{
 
     private UUID id;
     private String nombre;
@@ -87,6 +85,10 @@ public class Socio {
 	public int getStateDiasHabiles() {
 		return stateDiasHabiles;
 	}
-	
-	
+
+
+	@Override
+	public void actualizar(Sujeto observable) {
+		System.out.printf("Socio te informo que cambio el estado de prestamo\n");
+	}
 }

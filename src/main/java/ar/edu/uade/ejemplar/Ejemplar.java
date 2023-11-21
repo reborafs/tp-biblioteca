@@ -1,10 +1,15 @@
 package ar.edu.uade.ejemplar;
 
 import ar.edu.uade.ejemplar.Categoria;
+import ar.edu.uade.prestamo.Observer;
+import ar.edu.uade.prestamo.Sujeto;
+import ar.edu.uade.usuario.EstadoSocio;
+
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
-public class Ejemplar implements IUbicacion {
+public class Ejemplar implements IUbicacion, Observer {
 
 	private UUID uuid;
 	private Categoria categoria;
@@ -58,6 +63,12 @@ public class Ejemplar implements IUbicacion {
 		this.disponible = !disponible;
 	}
 
+	@Override
+	public void actualizar(Sujeto observable) {
+		String estadoPrestamo = observable.getEstado().toString();
+
+		System.out.printf("Ejemplar devuelto \n");
+	}
 
 	public Map<String, String> getInfo() {
 		return 	Map.of(

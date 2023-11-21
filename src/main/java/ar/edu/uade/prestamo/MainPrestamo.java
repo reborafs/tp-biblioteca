@@ -7,9 +7,11 @@ import ar.edu.uade.usuario.EstrategiaWpp;
 import java.time.LocalDate;
 import java.util.UUID;
 
+import java.time.temporal.ChronoUnit;
+
 public class MainPrestamo {
     public static void main(String[] args) {
-
+/*
         IEstrategiaAlerta estrategiaAlerta = new EstrategiaWpp();
 
         Socio socio = new Socio("Iván", "Rodríguez", "12345678", "prueba@test.com", "98765432", estrategiaAlerta);
@@ -24,5 +26,7 @@ public class MainPrestamo {
         prestamo.agregar(socio);
 
         prestamo.setEstado(EstadoPrestamo.DEVUELTO);
-    }
+*/
+
+        }
 }

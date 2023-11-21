@@ -1,9 +1,11 @@
 package ar.edu.uade.usuario;
 
+
 import ar.edu.uade.prestamo.Observer;
-import ar.edu.uade.prestamo.Prestamo;
 import ar.edu.uade.prestamo.Sujeto;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.io.Serializable;
 import java.util.*;
 
@@ -19,9 +21,10 @@ public class Socio implements Observer{
     //private ContextoAlerta contextoAlerta;
     //private TipoAlerta tipoAlerta;
     private IEstrategiaAlerta estrategiaAlerta;
-    private IStateSocio stateSocio;
+    private EstadoSocio estadoSocio;
     //private TipoEstado estado;
     private int stateDiasHabiles;
+	private int devolucionesTermino;
 
     public Socio(String nombre, String apellido, String dni, String mail, String nroTelefono,
 			IEstrategiaAlerta estrategiaAlerta) {
@@ -32,8 +35,9 @@ public class Socio implements Observer{
 		this.mail = mail;
 		this.nroTelefono = nroTelefono;
 		this.estrategiaAlerta = estrategiaAlerta;	
-		this.stateSocio = new StateActivo();
+		this.estadoSocio = EstadoSocio.ACTIVO;
 		this.stateDiasHabiles = 0;
+		this.devolucionesTermino = 0;
 	}
     
     
@@ -41,8 +45,8 @@ public class Socio implements Observer{
 		estrategiaAlerta.enviarNotificacion(contacto, mensaje, motivoComunicacion);
 	}
 	
-    public void setStateSocio(IStateSocio stateSocio) {
-		this.stateSocio = stateSocio;
+    public void setEstadoSocio(EstadoSocio estadoSocio) {
+		this.estadoSocio = estadoSocio;
 	}
 	
 	public void setEstrategiaAlerta(IEstrategiaAlerta estrategiaAlerta) {
@@ -78,8 +82,8 @@ public class Socio implements Observer{
 		return nroTelefono;
 	}
 
-	public IStateSocio getStateSocio() {
-		return stateSocio;
+	public EstadoSocio getEstadoSocio() {
+		return estadoSocio;
 	}
 
 
@@ -87,11 +91,41 @@ public class Socio implements Observer{
 		return stateDiasHabiles;
 	}
 
+	public void setDevolucionesTermino() {
+		this.devolucionesTermino++;
+	}
+
+	public void resetDevolucionesTermino() {
+		this.devolucionesTermino = 0;
+	}
+
 
 	@Override
 	public void actualizar(Sujeto observable) {
-		String estado = (((Prestamo) observable).getEstado().toString());
-		System.out.printf("Socio te informo que cambio el estado a "+ estado+" de prestamo\n");
+		String estadoPrestamo = observable.getEstado().toString();
+		if(estadoPrestamo.equals("DEVUELTO")){
+			LocalDate fechaEnvioNotificacion = observable.getFechaVencimiento();
+			LocalDate fechaActual = LocalDate.now();
+			int diasDiferencia = (int) ChronoUnit.DAYS.between(fechaEnvioNotificacion, fechaActual);
+			this.setStateDiasHabiles(diasDiferencia);
+			System.out.println("diasDiferencia: " + diasDiferencia);
+			if(diasDiferencia > 0){
+				this.setDevolucionesTermino();
+				if(this.devolucionesTermino == 5){
+					this.setStateDiasHabiles(1);
+					this.resetDevolucionesTermino();
+				}
+			} else if (diasDiferencia < 0) {
+				this.resetDevolucionesTermino();
+				this.setEstadoSocio(EstadoSocio.SUSPENDIDO);
+				System.out.println("Aqui estadoSocio: " + this.getEstadoSocio().toString());
+			}
+		} else if(estadoPrestamo.equals("VENCIDO")){
+			this.resetDevolucionesTermino();
+			this.setEstadoSocio(EstadoSocio.SUSPENDIDO);
+			System.out.println("Aqui estadoSocio: " + this.getEstadoSocio().toString());
+		}
+		System.out.printf("Socio te informo el cambio de estado tu prestamo a "+ estadoPrestamo+"\n");
 	}
 
 	public Map<String, String> getInfo() {
@@ -103,6 +137,6 @@ public class Socio implements Observer{
 				"mail", this.mail,
 				"nroTelefono", this.nroTelefono,
 				"estrategiaAlerta", this.estrategiaAlerta.getDescription(),
-				"stateSocio", this.stateSocio.getDescription());
+				"stateSocio", this.estadoSocio.toString());
 	}
 }

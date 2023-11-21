@@ -14,14 +14,16 @@ import ar.edu.uade.usuario.Socio;
 public class Prestamo implements Sujeto{
 	
 	private UUID idSocio;
+	private UUID ejemplarID;
     private LocalDate fechaPrestamo;
     private LocalDate fechaVencimiento;
     private LocalDate fechaDevolucion;
     private EstadoPrestamo estado;
 	private List<Observer> observers;
 
-    public Prestamo(UUID idSocio, LocalDate fechaPrestamo, LocalDate fechaVencimiento, EstadoPrestamo estado) {
+    public Prestamo(UUID idSocio, UUID ejemplarID, LocalDate fechaPrestamo, LocalDate fechaVencimiento, EstadoPrestamo estado) {
 		this.idSocio = idSocio;
+		this.ejemplarID = ejemplarID;
 		this.fechaPrestamo = fechaPrestamo;
 		this.fechaVencimiento = fechaVencimiento;
 		this.estado = estado;

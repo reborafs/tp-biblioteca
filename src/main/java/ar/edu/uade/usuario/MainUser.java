@@ -1,5 +1,7 @@
 package ar.edu.uade.usuario;
 
+import java.util.UUID;
+
 public class MainUser {
 
 	public static void main(String[] args) {
@@ -24,7 +26,8 @@ public class MainUser {
 		System.out.println("---------------------------------------\n update estrategia:");
 		sociosFacade.modificarNotificacion("name5", estrategiaSms);
 		System.out.println("---------------------------------------\n notificacion:");
-		sociosFacade.notificarSocio("name5");
+		UUID socioID5 =  sociosFacade.getSocios().get(5).getUUID();
+		sociosFacade.notificarSocio(socioID5, "tiene "+TipoMotivoComunicacion.FECHA_VENCIMIENTO_PROXIMO, TipoMotivoComunicacion.FECHA_VENCIMIENTO_PROXIMO);
 		System.out.println("---------------------------------------");
 	}
 

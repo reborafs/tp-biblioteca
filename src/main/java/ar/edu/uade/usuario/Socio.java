@@ -6,6 +6,7 @@ import ar.edu.uade.prestamo.Sujeto;
 
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
+import java.io.Serializable;
 import java.util.*;
 
 
@@ -125,5 +126,17 @@ public class Socio implements Observer{
 			System.out.println("Aqui estadoSocio: " + this.getEstadoSocio().toString());
 		}
 		System.out.printf("Socio te informo el cambio de estado tu prestamo a "+ estadoPrestamo+"\n");
+	}
+
+	public Map<String, String> getInfo() {
+		return 	Map.of(
+				"id", this.id.toString(),
+				"nombre", this.nombre,
+				"apellido", this.apellido,
+				"dni", this.dni,
+				"mail", this.mail,
+				"nroTelefono", this.nroTelefono,
+				"estrategiaAlerta", this.estrategiaAlerta.getDescription(),
+				"stateSocio", this.estadoSocio.toString());
 	}
 }

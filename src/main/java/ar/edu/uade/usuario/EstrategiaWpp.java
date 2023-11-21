@@ -18,5 +18,8 @@ public class EstrategiaWpp implements IEstrategiaAlerta {
 				" mensaje: "+mensaje);
 		
 	}
-
+	public String getDescription() {
+		String description = "WPP";
+		return description;
+	};
 }

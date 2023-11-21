@@ -15,5 +15,11 @@ public class EstrategiaMail implements IEstrategiaAlerta {
 				"\n motivo: "+motivoComunicacion+
 				"\n mensaje: "+mensaje);
 	}
-	
+
+	public String getDescription() {
+		String description = "MAIL";
+		return description;
+	};
+
+
 }

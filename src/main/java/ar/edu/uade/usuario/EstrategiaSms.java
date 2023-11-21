@@ -17,5 +17,8 @@ public class EstrategiaSms implements IEstrategiaAlerta {
 				"\n motivo: motivoComunicacion: "+motivoComunicacion
 				+"\nmensaje: "+mensaje );
 	}
-
+	public String getDescription() {
+		String description = "SMS";
+		return description;
+	};
 }

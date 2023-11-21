@@ -70,4 +70,14 @@ public class Ejemplar implements IUbicacion, Observer {
 		System.out.printf("Ejemplar devuelto \n");
 	}
 
+	public Map<String, String> getInfo() {
+		return 	Map.of(
+				"uuid", String.valueOf(this.uuid),
+				"categoria", String.valueOf(this.categoria),
+				"titulo", String.valueOf(this.titulo),
+				"autor", String.valueOf(this.autor),
+				"fechaPublicacion", String.valueOf(this.fechaPublicacion),
+				"ubicacion", String.valueOf(this.ubicacion),
+				"disponible", this.disponible? "SI" : "NO");
+	}
 }
